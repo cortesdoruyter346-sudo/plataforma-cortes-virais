@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 2%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 153 100% 50%;
+    --primary-foreground: 0 0% 2%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 153 100% 50%;
+    --accent-foreground: 0 0% 2%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 153 100% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 3%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(153 100% 50% / 0.3);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(153 100% 50% / 0.5);
+}
+
+/* Glow effects */
+.neon-glow {
+  box-shadow: 0 0 20px hsl(153 100% 50% / 0.3), 0 0 40px hsl(153 100% 50% / 0.15);
+}
+.neon-glow-sm {
+  box-shadow: 0 0 10px hsl(153 100% 50% / 0.2);
+}
+.neon-text {
+  text-shadow: 0 0 10px hsl(153 100% 50% / 0.5), 0 0 20px hsl(153 100% 50% / 0.3);
+}
+
+/* Glass morphism */
+.glass {
+  background: hsl(0 0% 5% / 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid hsl(0 0% 100% / 0.06);
+}
+.glass-strong {
+  background: hsl(0 0% 5% / 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid hsl(0 0% 100% / 0.08);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(153 100% 50%), hsl(160 80% 60%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated gradient border */
+@keyframes gradient-border {
+  0%, 100% { border-color: hsl(153 100% 50% / 0.3); }
+  50% { border-color: hsl(153 100% 50% / 0.6); }
+}
+.animate-border {
+  animation: gradient-border 3s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(153 100% 50% / 0.2); }
+  50% { box-shadow: 0 0 30px hsl(153 100% 50% / 0.4), 0 0 60px hsl(153 100% 50% / 0.1); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 50%, hsl(0 0% 8%) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Fade in up */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Slide in */
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in {
+  animation: slide-in 0.4s ease-out forwards;
+}
+
+/* Scale in */
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
+}
+
+/* Spin slow */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(hsl(153 100% 50% / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(153 100% 50% / 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Radial fade */
+.radial-fade {
+  background: radial-gradient(ellipse at top, hsl(153 100% 50% / 0.08), transparent 60%);
+}
